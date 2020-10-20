@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+<div class="container-fluid mt-4 ">
+    <div class="row text-center">
+        
+
+			{% include 'cards.html' %}
+
+
+</div>
+</div>
+
+<div class="container-fluid mt-4 ">
+    <div class="row">
+        <div class="col text-center ">
+            <h2 class="bg-info text-white font-weight-bold">CUSTOMERS</h2>
+            <table class="table mt-2 border border-info">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cx in customer %}
+                    <tr>
+                        <td>{{ cx.first_name }} </td>
+                        <td>{{ cx.last_name }}</td>
+                        <td>{{ cx.phone }}</td>
+                        <td><a class="btn btn-sm btn-info " href="{% url 'user' cx.id %}">View</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col text-center ">
+            <h2 class="bg-info text-white font-weight-bold">LAST 3 ORDERS</h2>
+
+            
+            <table class="table mt-2 border border-info">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Remove</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cx in order %}
+                    <tr>
+                        <td> {{ cx.customer }} </td>
+                        <td>{{ cx.product }}</td>
+                        <td>{{ cx.status }}</td>
+                        <td>{{ cx.date_created }}</td>
+                        <td><a class="btn btn-sm btn-success " href="{% url 'updateOrder' cx.id %}">Update</a></td>
+                        <td><a class="btn btn-sm btn-danger " href="{% url 'deleteOrder' cx.id %}">Remove</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

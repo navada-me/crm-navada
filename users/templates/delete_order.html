@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %} 
+<div class="container mt-4 ">
+    <div class="row">
+        <div class="col  mx-auto">
+            <div class="alert alert-info mt-2 text-center text-dark font-weight-bold" role="alert">
+                <h2>DELETE ORDER</h2>
+            </div>
+            <div class="form-group">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-lg btn-block btn-danger" type="submit" name="submit" value="YES">
+
+                    <a class="btn btn-lg btn-block btn-success"  href="{% url 'home' %}"> No</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

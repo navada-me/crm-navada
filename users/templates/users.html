@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid mt-4 ">
+    <div class="row">
+        <div class="mx-auto">
+            <div class=" card-deck">
+
+                <div class="card text-info text-uppercase font-weight-bold border-info mb-3">
+                    <div class="card-header">{{users.first_name }} {{users.last_name }} </div>
+                    <div class="card-body border-info text-dark">
+                        <h5 class="card-text"><span class="text-info">Phone: </span>{{ users.phone }}</h5>
+                        <h5 class="card-text"><span class="text-info">Email : </span>{{users.email}}</h5>
+                    </div>
+                </div>
+                <div class="card text-info text-uppercase font-weight-bold border-info mb-3">
+                    <div class="card-header">Total Orders</div>
+                    <div class="card-body border-info text-dark">
+                        <h2 class="card-text">{{ tod }}</h2>
+                    </div>
+                </div>
+
+                <div class="card text-info text-uppercase font-weight-bold border-info mb-3">
+                    
+                    <div class="card-body border-info text-dark">
+                        <h2 class="card-text"><a class="btn btn-sm btn-success " href="">Update Customer</a></td></h2>
+                         <h2 class="card-text"><a class="btn btn-sm btn-success " href="">Delete Customer</a></td></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 mx-auto">
+    	<h2 class="bg-info p-1 text-white font-weight-bold">Products ordered by {{users.first_name }} {{users.last_name }}  </h2>
+            <table class="table table-hover mt-2 border border-info">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cx in order %}
+                    <tr>
+                        <td> {{ cx.product }} </td>
+                        <td>{{ cx.product.category }}</td>
+                        <td>{{ cx.status}}</td>
+                        <td>{{ cx.date_created }}</td>
+                        <td><a class="btn btn-sm btn-success " href="{% url 'updateOrder' cx.id %}">Update</a></td>
+                        <td><a class="btn btn-sm btn-danger " href="{% url 'updateOrder' cx.id %}">Remove</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</div>
+{% endblock content %}
