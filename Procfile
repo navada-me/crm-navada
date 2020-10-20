@@ -1,1 +1,1 @@
-web: gunicorn notes.wsgi --log-file -
+web: gunicorn crm_navada.wsgi --log-file -
