@@ -26,6 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('secret_key')
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -86,7 +87,7 @@ WSGI_APPLICATION = 'crm_navada.wsgi.application'
 #     }
 # }
 
-# Deployment database setup uncomment it when deploying
+Deployment database setup uncomment it when deploying
 DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')

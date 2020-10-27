@@ -1,11 +1,17 @@
-{% extends "base.html" %}	
-
+{% extends "base.html" %}
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock navbar %}
 {% block content %}
-
-	<form action="" method="POST">
-		{% csrf_token %}
-		{{ form }}
-		<input type="submit" name="submit">
-	</form>
-	
+<div class="container mt-4 ">
+    <div class="row">
+        <div class="col  mx-auto">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" name="submit">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

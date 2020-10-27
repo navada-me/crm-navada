@@ -1,20 +1,13 @@
 {% extends 'base.html' %}
-
-
-
-
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock navbar %}
 {% block content %}
-
 <div class="container-fluid mt-4 ">
     <div class="row text-center">
-        
-
-			{% include 'cards.html' %}
-
-
+        {% include 'cards.html' %}
+    </div>
 </div>
-</div>
-
 <div class="container-fluid mt-4 ">
     <div class="row">
         <div class="col text-center ">
@@ -42,8 +35,6 @@
         </div>
         <div class="col text-center ">
             <h2 class="bg-info text-white font-weight-bold">LAST 3 ORDERS</h2>
-
-            
             <table class="table mt-2 border border-info">
                 <thead class="thead-light">
                     <tr>
@@ -53,7 +44,6 @@
                         <th scope="col">Date</th>
                         <th scope="col">Update</th>
                         <th scope="col">Remove</th>
-
                     </tr>
                 </thead>
                 <tbody>
